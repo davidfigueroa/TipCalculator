@@ -4,9 +4,72 @@
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
 
-    <TextView
+    <EditText
+        android:id="@+id/etBillAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/enter_bill_amount"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/bTenPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etBillAmount"
+        android:layout_marginTop="81dp"
+        android:layout_toLeftOf="@+id/bFifteenPercent"
+        android:tag="10"
+        android:text="@string/ten_percent"
+        android:onClick="onTipPercentageClick" />
+
+    <Button
+        android:id="@+id/bTwentyPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bFifteenPercent"
+        android:layout_alignBottom="@+id/bFifteenPercent"
+        android:layout_toRightOf="@+id/bFifteenPercent"
+        android:tag="20"
+        android:text="@string/twenty_percent" 
+        android:onClick="onTipPercentageClick" />
+
+    <Button
+        android:id="@+id/bFifteenPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bTenPercent"
+        android:layout_alignBottom="@+id/bTenPercent"
+        android:layout_centerHorizontal="true"
+        android:tag="15"
+        android:text="@string/fifteen_percent"
+        android:onClick="onTipPercentageClick" />
+
+    <TextView
+        android:id="@+id/tvTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bFifteenPercent"
+        android:layout_below="@+id/bTwentyPercent"
+        android:layout_marginTop="66dp"
+        android:text="@string/zero_tip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvTip"
+        android:layout_alignBottom="@+id/tvTip"
+        android:layout_alignLeft="@+id/bTenPercent"
+        android:text="@string/tip_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
