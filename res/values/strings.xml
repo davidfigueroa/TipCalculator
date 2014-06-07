@@ -3,11 +3,14 @@
 
     <string name="app_name">TipCalculator</string>
     <string name="hello_world">Hello world!</string>
-    <string name="enter_bill_amount">Please enter bill amount</string>
+    <string name="enter_bill_amount">Bill amount</string>
     <string name="ten_percent">10%</string>
     <string name="fifteen_percent">15%</string>
     <string name="twenty_percent">20%</string>
     <string name="tip_label">Tip is:</string>
     <string name="zero_tip">$0.00</string>
+    <string name="enter_tip_percent">Tip %</string>
+    <string name="bill_amount_hint">i.e. $30</string>
+    <string name="tip_percent_hint">i.e. 15%</string>
 
 </resources>

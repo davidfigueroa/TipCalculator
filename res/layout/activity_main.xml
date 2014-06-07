@@ -4,61 +4,49 @@
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
 
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etBillAmount"
+        android:layout_toLeftOf="@+id/etBillAmount"
+        android:text="@string/enter_bill_amount"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
     <EditText
         android:id="@+id/etBillAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="@string/enter_bill_amount"
+        android:hint="@string/bill_amount_hint"
         android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>
 
-    <Button
-        android:id="@+id/bTenPercent"
+    <EditText
+        android:id="@+id/etTipPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/etBillAmount"
-        android:layout_marginTop="81dp"
-        android:layout_toLeftOf="@+id/bFifteenPercent"
-        android:tag="10"
-        android:text="@string/ten_percent"
-        android:onClick="onTipPercentageClick" />
-
-    <Button
-        android:id="@+id/bTwentyPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bFifteenPercent"
-        android:layout_alignBottom="@+id/bFifteenPercent"
-        android:layout_toRightOf="@+id/bFifteenPercent"
-        android:tag="20"
-        android:text="@string/twenty_percent" 
-        android:onClick="onTipPercentageClick" />
-
-    <Button
-        android:id="@+id/bFifteenPercent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/bTenPercent"
-        android:layout_alignBottom="@+id/bTenPercent"
-        android:layout_centerHorizontal="true"
-        android:tag="15"
-        android:text="@string/fifteen_percent"
-        android:onClick="onTipPercentageClick" />
-
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/tip_percent_hint"
+        android:inputType="numberDecimal" />
+    
     <TextView
         android:id="@+id/tvTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bFifteenPercent"
-        android:layout_below="@+id/bTwentyPercent"
-        android:layout_marginTop="66dp"
+        android:layout_below="@+id/etTipPercent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
         android:text="@string/zero_tip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -66,10 +54,19 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tvTip"
-        android:layout_alignBottom="@+id/tvTip"
-        android:layout_alignLeft="@+id/bTenPercent"
+        android:layout_alignBaseline="@id/tvTip"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/tvTip"
         android:text="@string/tip_label"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etTipPercent"
+        android:layout_toLeftOf="@id/etTipPercent"
+        android:text="@string/enter_tip_percent"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

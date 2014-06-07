@@ -8,13 +8,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	EditText etBillAmount;
+	EditText etTipPercent;
 	TextView tvTipAmount;
 	
     @Override
@@ -22,9 +21,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         etBillAmount = (EditText)findViewById(R.id.etBillAmount);
+        etTipPercent = (EditText)findViewById(R.id.etTipPercent);
         tvTipAmount = (TextView)findViewById(R.id.tvTip);
         
-        etBillAmount.addTextChangedListener(new TextWatcher() {
+        TextWatcher billAmountAndTipPercentWatcher = new TextWatcher() {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 			}
@@ -33,18 +33,22 @@ public class MainActivity extends Activity {
 			}
 			@Override
 			public void afterTextChanged(Editable s) {
-		    	tvTipAmount.setText(getString(R.string.zero_tip));
+				recalculateTip();
 			}
-		});
+		};
+			
+        etBillAmount.addTextChangedListener(billAmountAndTipPercentWatcher);
+        etTipPercent.addTextChangedListener(billAmountAndTipPercentWatcher);
     }
     
-    public void onTipPercentageClick(View v) {
-    	if (etBillAmount.getText().length() == 0) {
-    		Toast.makeText(this, getString(R.string.enter_bill_amount), Toast.LENGTH_SHORT).show();
+    private void recalculateTip() {
+    	if (etBillAmount.getText().length() == 0 || etTipPercent.getText().length() == 0) {
+    		tvTipAmount.setText(getString(R.string.zero_tip));
     		return;
     	}
+
     	BigDecimal billAmount = new BigDecimal(etBillAmount.getText().toString());
-    	BigDecimal tipPercent = new BigDecimal(v.getTag().toString());
+    	BigDecimal tipPercent = new BigDecimal(etTipPercent.getText().toString());
     	BigDecimal tipAmount = billAmount.multiply(tipPercent).divide(new BigDecimal(100));
     	tipAmount.setScale(2, RoundingMode.CEILING);
     	
