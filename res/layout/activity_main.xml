@@ -2,26 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context="${packageName}.${activityClass}" >
 
     <TextView
-        android:id="@+id/TextView01"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/etBillAmount"
-        android:layout_toLeftOf="@+id/etBillAmount"
         android:text="@string/enter_bill_amount"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    
+
     <EditText
         android:id="@+id/etBillAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp"
-        android:ems="10"
+        android:layout_toRightOf="@id/textView3"
+        android:ems="8"
         android:hint="@string/bill_amount_hint"
         android:inputType="numberDecimal" >
 
@@ -32,21 +29,36 @@
         android:id="@+id/etTipPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/etBillAmount"
-        android:layout_marginTop="10dp"
-        android:ems="10"
+        android:layout_alignLeft="@id/etBillAmount"
+        android:layout_below="@id/etBillAmount"
+        android:ems="4"
         android:hint="@string/tip_percent_hint"
         android:inputType="numberDecimal" />
-    
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/etTipPercent"
+        android:layout_toLeftOf="@id/etTipPercent"
+        android:text="@string/enter_tip_percent"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etTipPercent"
+        android:layout_below="@+id/tvTip"
+        android:text="@string/zero_tip"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <TextView
         android:id="@+id/tvTip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@id/tvTotalAmount"
         android:layout_below="@+id/etTipPercent"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
         android:text="@string/zero_tip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -55,18 +67,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/tvTip"
-        android:layout_marginRight="10dp"
-        android:layout_toLeftOf="@+id/tvTip"
+        android:layout_alignRight="@+id/textView6"
         android:text="@string/tip_label"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    
     <TextView
-        android:id="@+id/TextView02"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/etTipPercent"
-        android:layout_toLeftOf="@id/etTipPercent"
-        android:text="@string/enter_tip_percent"
+        android:layout_alignBaseline="@+id/tvTotalAmount"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/tvTotalAmount"
+        android:text="@string/total_label"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

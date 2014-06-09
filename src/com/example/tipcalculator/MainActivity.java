@@ -12,9 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-	EditText etBillAmount;
-	EditText etTipPercent;
-	TextView tvTipAmount;
+	EditText etBillAmount, etTipPercent;
+	TextView tvTipAmount, tvTotalAmount;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +22,7 @@ public class MainActivity extends Activity {
         etBillAmount = (EditText)findViewById(R.id.etBillAmount);
         etTipPercent = (EditText)findViewById(R.id.etTipPercent);
         tvTipAmount = (TextView)findViewById(R.id.tvTip);
+        tvTotalAmount = (TextView)findViewById(R.id.tvTotalAmount);
         
         TextWatcher billAmountAndTipPercentWatcher = new TextWatcher() {
 			@Override
@@ -49,9 +49,13 @@ public class MainActivity extends Activity {
 
     	BigDecimal billAmount = new BigDecimal(etBillAmount.getText().toString());
     	BigDecimal tipPercent = new BigDecimal(etTipPercent.getText().toString());
-    	BigDecimal tipAmount = billAmount.multiply(tipPercent).divide(new BigDecimal(100));
-    	tipAmount.setScale(2, RoundingMode.CEILING);
     	
+    	BigDecimal tipAmount = billAmount.multiply(tipPercent).divide(new BigDecimal(100));
+    	tipAmount.setScale(2, RoundingMode.CEILING);  	
     	tvTipAmount.setText(NumberFormat.getCurrencyInstance().format(tipAmount));
+
+    	BigDecimal totalAmount = billAmount.add(tipAmount);
+    	totalAmount.setScale(2, RoundingMode.CEILING);  	
+    	tvTotalAmount.setText(NumberFormat.getCurrencyInstance().format(totalAmount));
     }
 }

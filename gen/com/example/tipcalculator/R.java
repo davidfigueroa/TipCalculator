@@ -14,28 +14,27 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int TextView01=0x7f060000;
-        public static final int TextView02=0x7f060005;
         public static final int etBillAmount=0x7f060001;
         public static final int etTipPercent=0x7f060002;
-        public static final int textView2=0x7f060004;
-        public static final int tvTip=0x7f060003;
+        public static final int textView2=0x7f060006;
+        public static final int textView3=0x7f060000;
+        public static final int textView4=0x7f060003;
+        public static final int textView6=0x7f060007;
+        public static final int tvTip=0x7f060005;
+        public static final int tvTotalAmount=0x7f060004;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int bill_amount_hint=0x7f040009;
-        public static final int enter_bill_amount=0x7f040002;
-        public static final int enter_tip_percent=0x7f040008;
-        public static final int fifteen_percent=0x7f040004;
-        public static final int hello_world=0x7f040001;
-        public static final int ten_percent=0x7f040003;
-        public static final int tip_label=0x7f040006;
-        public static final int tip_percent_hint=0x7f04000a;
-        public static final int twenty_percent=0x7f040005;
-        public static final int zero_tip=0x7f040007;
+        public static final int bill_amount_hint=0x7f040005;
+        public static final int enter_bill_amount=0x7f040001;
+        public static final int enter_tip_percent=0x7f040004;
+        public static final int tip_label=0x7f040002;
+        public static final int tip_percent_hint=0x7f040006;
+        public static final int total_label=0x7f040007;
+        public static final int zero_tip=0x7f040003;
     }
     public static final class style {
         /** 
